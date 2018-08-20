@@ -21,7 +21,7 @@ services:
     networks:
       - youqel-net
     environment:
-      - YOUQEL_BASEURL=youqel-backend 
+      - YOUQEL_BASEURL=http://www.youqel.com
       - DEBUG=app:*
       - db.youqel.jdbc.driver=org.postgresql.Driver
       - db.youqel.jdbc.url=jdbc:postgresql://database/youqel
@@ -35,9 +35,11 @@ services:
     networks:
       - youqel-net
     environment:
-      - YOUQEL_BASEURL=youqel-backend:10280
+      - YOUQEL_BASEURL=http://www.youqel.com:10280
 networks:
   youqel-net:
 
 volumes:
   dbdata:
+
+    docker exec -it   /usr/bin/psql -U postgres youqel
