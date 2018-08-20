@@ -41,5 +41,3 @@ networks:
 
 volumes:
   dbdata:
-
-    docker exec -it   /usr/bin/psql -U postgres youqel
