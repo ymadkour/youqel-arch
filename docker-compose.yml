@@ -14,20 +14,6 @@ services:
         source: dbdata
         target: /data/youqel-db
 
-  youqel_backend:
-    image: ymadkour/youqel-backend:latest
-    ports:
-      - "10280:3000"
-    networks:
-      - youqel-net
-    environment:
-      - YOUQEL_BASEURL=youqel_backend 
-      - DEBUG=app:*
-      - db.digatushrpro.jdbc.driver=org.postgresql.Driver
-      - db.youqel.jdbc.url=jdbc:postgresql://database/youqel
-      - db.digatushrpro.jdbc.user=postgres
-      - db.digatushrpro.jdbc.password=postgres
-
   youqel_frontend:
     image: ymadkour/youqel-frontend:latest
     ports:
