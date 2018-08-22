@@ -36,6 +36,8 @@ services:
     image: ymadkour/youqel-frontend:latest
     ports:
       - "80:80"
+    depends_on:
+      - youqel-backend
     networks:
       - youqel-net
     environment:
