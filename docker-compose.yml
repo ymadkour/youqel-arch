@@ -21,7 +21,7 @@ services:
     ports:
       - "10280:3000"
     depends_on:
-          - youqel-db
+      - youqel-db
     networks:
       - youqel-net
     environment:
