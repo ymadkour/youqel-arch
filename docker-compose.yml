@@ -19,11 +19,12 @@ services:
   youqel-backend:
     image: ymadkour/youqel-backend:0.0.1
     ports:
-      - "5000:8080"
+      - "10280::8080"
     depends_on:
       - youqel-db
     networks:
       - youqel-backend-net
+      - youqel-frontend-net
     environment:
       - YOUQEL_BASEURL=http://www.youqel.com
       - DEBUG=app:*
@@ -32,7 +33,18 @@ services:
       - db.youqel.jdbc.user=postgres
       - db.youqel.jdbc.password=postgres
 
+  youqel-frontend:
+    image: ymadkour/youqel-frontend:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - youqel-backend
+    networks:
+      - youqel-frontend-net
+    environment:
+      - YOUQEL_BASEURL=http://www.youqel.com:10280
 networks:
+  youqel-frontend-net:
   youqel-backend-net:
 
 volumes:
