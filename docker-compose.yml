@@ -17,7 +17,7 @@ services:
         target: /data/youqel-db
 
   youqel-backend:
-    image: ymadkour/youqel-backend:latest
+    image: ymadkour/youqel-backend:0.0.1
     ports:
       - "10280::8080"
     depends_on:
