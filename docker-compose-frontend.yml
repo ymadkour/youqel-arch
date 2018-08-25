@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+  youqel-frontend:
+    image: ymadkour/youqel-frontend:latest
+    ports:
+      - "80:80"
+    environment:
+      - YOUQEL_BASEURL=http://www.youqel.com:10280
