@@ -19,7 +19,7 @@ services:
   youqel-backend:
     image: ymadkour/youqel-backend:0.0.1
     ports:
-      - "10280::8080"
+      - "30002"
     depends_on:
       - youqel-db
     networks:
