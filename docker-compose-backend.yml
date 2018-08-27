@@ -1,0 +1,32 @@
+version: "3.3"
+
+services:
+  youqel-db:
+    image: postgres:9.4
+    environment:
+      - POSTGRES_DB=youqel
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - youqel-backend-net
+    ports:
+      - "5432:5432"  
+    volumes:
+      - type: volume
+        source: dbdata
+        target: /data/youqel-db
+
+  youqel-backend:
+    image: ymadkour/youqel-backend:0.0.1
+    ports:
+      - "80:80"
+    depends_on:
+      - youqel-db
+    networks:
+      - youqel-backend-net
+
+networks:
+  youqel-backend-net:
+
+volumes:
+  dbdata:
