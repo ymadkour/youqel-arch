@@ -34,7 +34,7 @@ services:
       - db.youqel.jdbc.password=postgres
 
   youqel-frontend:
-    image: ymadkour/youqel-frontend:latest
+    image: ymadkour/youqel-frontend:0.0.1
     ports:
       - "80:80"
     depends_on:
